@@ -30,8 +30,8 @@ function CreateToDoItems() {
 
     let li = document.createElement("li");
     const todoItems = `<div title="Hit Double Click and Complete" ondblclick="CompletedToDoItems(this)">${todoValue.value}</div><div>
-                    <img class="edit todo-controls" onclick="UpdateToDoItems(this)" src="/images/pencil.png" />
-                    <img class="delete todo-controls" onclick="DeleteToDoItems(this)" src="/images/delete.png" /></div></div>`;
+                    <img class="edit todo-controls" onclick="UpdateToDoItems(this)" src="pencil.png" />
+                    <img class="delete todo-controls" onclick="DeleteToDoItems(this)" src="delete.png" /></div></div>`;
     li.innerHTML = todoItems;
     listItems.appendChild(li);
 
@@ -60,14 +60,14 @@ function ReadToDoItems() {
     ${
       style === ""
         ? ""
-        : '<img class="todo-controls" src="/images/check-mark.png" />'
+        : '<img class="todo-controls" src="check-mark.png" />'
     }</div><div>
     ${
       style === ""
-        ? '<img class="edit todo-controls" onclick="UpdateToDoItems(this)" src="/images/pencil.png" />'
+        ? '<img class="edit todo-controls" onclick="UpdateToDoItems(this)" src="pencil.png" />'
         : ""
     }
-    <img class="delete todo-controls" onclick="DeleteToDoItems(this)" src="/images/delete.png" /></div></div>`;
+    <img class="delete todo-controls" onclick="DeleteToDoItems(this)" src="delete.png" /></div></div>`;
     li.innerHTML = todoItems;
     listItems.appendChild(li);
   });
@@ -84,7 +84,7 @@ function UpdateToDoItems(e) {
       e.parentElement.parentElement.querySelector("div").innerText;
     updateText = e.parentElement.parentElement.querySelector("div");
     addUpdate.setAttribute("onclick", "UpdateOnSelectionItems()");
-    addUpdate.setAttribute("src", "/images/refresh.png");
+    addUpdate.setAttribute("src", "refresh.png");
     todoValue.focus();
   }
 }
@@ -111,7 +111,7 @@ function UpdateOnSelectionItems() {
 
   updateText.innerText = todoValue.value;
   addUpdate.setAttribute("onclick", "CreateToDoItems()");
-  addUpdate.setAttribute("src", "/images/plus.png");
+  addUpdate.setAttribute("src", "plus.png");
   todoValue.value = "";
   setAlertMessage("Todo item Updated Successfully!");
 }
@@ -143,7 +143,7 @@ function DeleteToDoItems(e) {
 function CompletedToDoItems(e) {
   if (e.parentElement.querySelector("div").style.textDecoration === "") {
     const img = document.createElement("img");
-    img.src = "/images/check-mark.png";
+    img.src = "check-mark.png";
     img.className = "todo-controls";
     e.parentElement.querySelector("div").style.textDecoration = "line-through";
     e.parentElement.querySelector("div").appendChild(img);
