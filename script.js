@@ -10,6 +10,11 @@ if (!todo) {
   todo = [];
 }
 
+/* store data in a web browser's localStorage.*/
+function setLocalStorage() {
+  localStorage.setItem("todo-list", JSON.stringify(todo));
+}
+
 /* CREATE new tasks into the list */
 function CreateToDoItems() {
   if (todoValue.value === "") {
@@ -121,7 +126,7 @@ function DeleteToDoItems(e) {
   let deleteValue =
     e.parentElement.parentElement.querySelector("div").innerText;
 
-  if (confirm(`Are you sure. Due you want to delete this ${deleteValue}!`)) {
+  if (confirm(`Are you sure. Do you want to delete this ${deleteValue}!`)) {
     e.parentElement.parentElement.setAttribute("class", "deleted-item");
     todoValue.focus();
 
@@ -161,10 +166,6 @@ function CompletedToDoItems(e) {
   }
 }
 
-/* store data in a web browser's localStorage.*/
-function setLocalStorage() {
-  localStorage.setItem("todo-list", JSON.stringify(todo));
-}
 
 /* set the alert messages based on user activity in the app*/
 function setAlertMessage(message) {
