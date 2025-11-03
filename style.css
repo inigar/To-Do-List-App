@@ -88,7 +88,7 @@ h5 {
   margin-right: 5px;
 }
 
-<!-- Implementing Animation on Create & Delete To-do's and Hide Alert Message-->
+<!-- Implementing Animation on Create & Delete and Hide Alert Message-->
 li {
   opacity: 0;
   animation: new-item-animation 0.3s linear forwards;
