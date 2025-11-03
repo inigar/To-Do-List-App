@@ -29,7 +29,7 @@ function CreateToDoItems() {
     });
 
     if (IsPresent) {
-      setAlertMessage("This item already present in the list!");
+      setAlertMessage("\n This item already present in the list!");
       return;
     }
 
@@ -48,7 +48,7 @@ function CreateToDoItems() {
     setLocalStorage();
   }
   todoValue.value = "";
-  setAlertMessage("Todo item Created Successfully!");
+  setAlertMessage("\n Todo item Created Successfully!");
 }
 
 /* READ data from localstorage and display in the todo list*/
@@ -103,7 +103,7 @@ function UpdateOnSelectionItems() {
   });
 
   if (IsPresent) {
-    setAlertMessage("This item already present in the list!");
+    setAlertMessage("\n This item already present in the list!");
     return;
   }
 
@@ -118,7 +118,7 @@ function UpdateOnSelectionItems() {
   addUpdate.setAttribute("onclick", "CreateToDoItems()");
   addUpdate.setAttribute("src", "plus.png");
   todoValue.value = "";
-  setAlertMessage("Todo item Updated Successfully!");
+  setAlertMessage("\n Todo item Updated Successfully!");
 }
 
 /* DELETE a task data from the list as well as localstorage*/
@@ -138,7 +138,7 @@ function DeleteToDoItems(e) {
 
     setTimeout(() => {
       e.parentElement.parentElement.remove();
-    }, 1000);
+    }, 500);
 
     setLocalStorage();
   }
@@ -162,7 +162,7 @@ function CompletedToDoItems(e) {
       }
     });
     setLocalStorage();
-    setAlertMessage("Todo item Completed Successfully!");
+    setAlertMessage("\n Todo item Completed Successfully!");
   }
 }
 
