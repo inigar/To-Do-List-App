@@ -29,14 +29,14 @@ function CreateToDoItems() {
     });
 
     if (IsPresent) {
-      setAlertMessage("\n This item already present in the list!");
+      setAlertMessage("This item already present in the list!");
       return;
     }
 
     let li = document.createElement("li");
     const todoItems = `<div title="Hit Double Click and Complete" ondblclick="CompletedToDoItems(this)">${todoValue.value}</div><div>
-                    <img class="edit todo-controls" onclick="UpdateToDoItems(this)" src="pencil.png" />
-                    <img class="delete todo-controls" onclick="DeleteToDoItems(this)" src="delete.png" /></div></div>`;
+                    <img class="edit todo-controls" onclick="UpdateToDoItems(this)" src="/images/pencil.png" />
+                    <img class="delete todo-controls" onclick="DeleteToDoItems(this)" src="/images/delete.png" /></div></div>`;
     li.innerHTML = todoItems;
     listItems.appendChild(li);
 
@@ -48,8 +48,9 @@ function CreateToDoItems() {
     setLocalStorage();
   }
   todoValue.value = "";
-  setAlertMessage("\n Todo item Created Successfully!");
+  setAlertMessage("Todo item Created Successfully!");
 }
+    
 
 /* READ data from localstorage and display in the todo list*/
 function ReadToDoItems() {
@@ -65,19 +66,20 @@ function ReadToDoItems() {
     ${
       style === ""
         ? ""
-        : '<img class="todo-controls" src="check-mark.png" />'
+        : '<img class="todo-controls" src="/images/check-mark.png" />'
     }</div><div>
     ${
       style === ""
-        ? '<img class="edit todo-controls" onclick="UpdateToDoItems(this)" src="pencil.png" />'
+        ? '<img class="edit todo-controls" onclick="UpdateToDoItems(this)" src="/images/pencil.png" />'
         : ""
     }
-    <img class="delete todo-controls" onclick="DeleteToDoItems(this)" src="delete.png" /></div></div>`;
+    <img class="delete todo-controls" onclick="DeleteToDoItems(this)" src="/images/delete.png" /></div></div>`;
     li.innerHTML = todoItems;
     listItems.appendChild(li);
   });
 }
 ReadToDoItems();
+
 
 /* UPDATE the task added by the user into the same list */
 function UpdateToDoItems(e) {
@@ -89,7 +91,7 @@ function UpdateToDoItems(e) {
       e.parentElement.parentElement.querySelector("div").innerText;
     updateText = e.parentElement.parentElement.querySelector("div");
     addUpdate.setAttribute("onclick", "UpdateOnSelectionItems()");
-    addUpdate.setAttribute("src", "refresh.png");
+    addUpdate.setAttribute("src", "/images/refresh.png");
     todoValue.focus();
   }
 }
@@ -103,7 +105,7 @@ function UpdateOnSelectionItems() {
   });
 
   if (IsPresent) {
-    setAlertMessage("\n This item already present in the list!");
+    setAlertMessage("This item already present in the list!");
     return;
   }
 
@@ -116,17 +118,18 @@ function UpdateOnSelectionItems() {
 
   updateText.innerText = todoValue.value;
   addUpdate.setAttribute("onclick", "CreateToDoItems()");
-  addUpdate.setAttribute("src", "plus.png");
+  addUpdate.setAttribute("src", "/images/plus.png");
   todoValue.value = "";
-  setAlertMessage("\n Todo item Updated Successfully!");
+  setAlertMessage("Todo item Updated Successfully!");
 }
+
 
 /* DELETE a task data from the list as well as localstorage*/
 function DeleteToDoItems(e) {
   let deleteValue =
     e.parentElement.parentElement.querySelector("div").innerText;
 
-  if (confirm(`Are you sure? Do you want to delete this ${deleteValue}!`)) {
+  if (confirm(`Are you sure? Due you want to delete this ${deleteValue}!`)) {
     e.parentElement.parentElement.setAttribute("class", "deleted-item");
     todoValue.focus();
 
@@ -144,11 +147,12 @@ function DeleteToDoItems(e) {
   }
 }
 
+
 /* change the status of the task if it's COMPLETE or NOT*/
 function CompletedToDoItems(e) {
   if (e.parentElement.querySelector("div").style.textDecoration === "") {
     const img = document.createElement("img");
-    img.src = "check-mark.png";
+    img.src = "/images/check-mark.png";
     img.className = "todo-controls";
     e.parentElement.querySelector("div").style.textDecoration = "line-through";
     e.parentElement.querySelector("div").appendChild(img);
@@ -162,7 +166,7 @@ function CompletedToDoItems(e) {
       }
     });
     setLocalStorage();
-    setAlertMessage("\n Todo item Completed Successfully!");
+    setAlertMessage("Todo item Completed Successfully!");
   }
 }
 
