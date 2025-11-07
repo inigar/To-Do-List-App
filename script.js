@@ -29,7 +29,7 @@ function CreateToDoItems() {
     });
 
     if (IsPresent) {
-      setAlertMessage("This item already present in the list!");
+      setAlertMessage("\nThis item already present in the list!");
       return;
     }
 
@@ -48,7 +48,7 @@ function CreateToDoItems() {
     setLocalStorage();
   }
   todoValue.value = "";
-  setAlertMessage("Todo item Created Successfully!");
+  setAlertMessage("\nTodo item Created Successfully!");
 }
     
 
@@ -105,7 +105,7 @@ function UpdateOnSelectionItems() {
   });
 
   if (IsPresent) {
-    setAlertMessage("This item already present in the list!");
+    setAlertMessage("\nThis item already present in the list!");
     return;
   }
 
@@ -120,7 +120,7 @@ function UpdateOnSelectionItems() {
   addUpdate.setAttribute("onclick", "CreateToDoItems()");
   addUpdate.setAttribute("src", "plus.png");
   todoValue.value = "";
-  setAlertMessage("Todo item Updated Successfully!");
+  setAlertMessage("\nTodo item Updated Successfully!");
 }
 
 
@@ -166,13 +166,14 @@ function CompletedToDoItems(e) {
       }
     });
     setLocalStorage();
-    setAlertMessage("Todo item Completed Successfully!");
+    setAlertMessage("\nTodo item Completed Successfully!");
   }
 }
 
 
 /* set the alert messages based on user activity in the app*/
 function setAlertMessage(message) {
+  todoAlert.innerHTML=message.replace(/\n/g,"<br">);
   todoAlert.removeAttribute("class");
   todoAlert.innerText = message;
   setTimeout(() => {
