@@ -1,40 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To-Do-List-App</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  
-  <body>
-    <div class="container">
-       <div class="todo-header">
-          <h2>ToDo List</h2>
-          <img src="notebook.png" height="50px" />
-       </div>
-       <div class="todo-body">
-            <input
-               type="text"
-               id="todoText"
-               class="todo-input"
-               placeholder="Add your items"
-            />
-            <img
-               src="plus.png"
-               alt="+"
-               id="AddUpdateClick"
-               onclick="CreateToDoItems();"
-            />
-       </div>
-    </div>
-    
-<div class="info">
-    <!-- Create a List with Validation to display Todo information.-->
-    <h5 id="Alert"></h5><br>
-    <ul id="list-items" class="list-items"></ul>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>To-Do-List-App</title>   
+<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <div class="todo-header">
+    <h2>ToDo List</h2>
+    <img src="notebook.png" height="50px" />
+  </div>
+
+  <!-- Input box -->
+  <div class="todo-body">
+    <input type="text" id="todoText" placeholder="Add your items" />
+    <img src="plus.png" alt="+" id="AddUpdateClick" onclick="CreateToDoItems();" />
+  </div>
+
+  <!-- Alert message -->
+  <h5 id="Alert" class="alert-message"></h5>
+
+  <!-- List -->
+  <ul id="list-items" class="list-items"></ul>
+
 </div>
-    
-    <script type="text/javascript" src="script.js"></script>
- </body>
+  <script type="text/javascript" src="script.js"></script>
+</body>
 </html>
